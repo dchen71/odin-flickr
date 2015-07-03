@@ -6,7 +6,7 @@ module Net
     alias_method :original_use_ssl=, :use_ssl=
     
     def use_ssl=(flag)
-      self.ca_file = 'lib/cacert.perm'
+      self.ca_file = 'lib/ca-bundle.crt'.to_s
       self.verify_mode = OpenSSL::SSL::VERIFY_PEER
       self.original_use_ssl = flag
     end
